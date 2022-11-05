@@ -6,6 +6,7 @@
 #include <conio.h>
 
 #include "pim-soft.h"
+#include "new-cliente.h"
 
 int main()
 {
@@ -28,7 +29,6 @@ int main()
       do
       {
         mainMenu();
-
         switch (input)
         {
         case 1:

@@ -49,7 +49,7 @@ void alertMsg(message, time)
 }
 
 // Tela de cadastro de novo cliente.
-void newClient()
+/* void newClient()
 {
           printf("\n");
           printf("\t\t\t\t\t\t\t  CADASTRAR CLIENTE\n");
@@ -74,7 +74,7 @@ void newClient()
           fflush(stdin);
           system("cls");
 }
-
+*/
 // Tela de alteração de plano do cliente
 void editPlan()
 {
@@ -135,7 +135,7 @@ void newTicket()
 void mainMenu()
 {
         printf("\n");
-        printf("\t\t\t\t\t\t\t\t  INIFITE PAY\n");
+        printf("\t\t\t\t\t\t\t\t HEADWAY CRED\n");
         printf("\n");
         printf("\t\t\t\t\t\t============================================\n");
         printf("\t\t\t\t\t\t|\t                                   |\n");
@@ -148,8 +148,8 @@ void mainMenu()
         printf("\t\t\t\t\t\t|\t                                   |\n");
         printf("\t\t\t\t\t\t============================================\n");
         printf("\n\n");
-        printf("\t\t\t\t\t\tSelecione uma opção: ");
         fflush(stdin);
+        printf("\t\t\t\t\t\tSelecione uma opção: ");
         scanf("%d", &input);
         system("cls");
 }
