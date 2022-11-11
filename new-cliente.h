@@ -143,6 +143,12 @@ void newClient()
     printf("\t\t\t\t\tSexo: %s\n", usersRecord[i].gender);
     printf("\t\t\t\t\tPlano: %s\n", usersRecord[i].plan);
   }
+  printf("\n\n\t\t\t\t\t\CONFIRMAR DADOS?\n");
+  printf("\n");
+  printf("\t\t\t\t\t(S)im\n");
+  printf("\t\t\t\t\t(N)ão?\n");
+
+
   getch();
   fflush(stdin);
   system("cls");
