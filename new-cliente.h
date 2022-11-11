@@ -24,8 +24,6 @@ typedef struct {
     int plan;
 } Register;
 
-char plans [4][10] = {'Bronze', 'Prata', 'Ouro'};
-
 void newClient() {
     Register usersRecord;
     int i;
@@ -94,21 +92,29 @@ void newClient() {
         default:
             goto genderCh;
         }
-        while (planChoice == 0)
-        {
-            printf("\n\t\t\t\t\tPlano: ");
-            printf("\n\t\t\t\t\t(1) Bronze ");
-            printf("\n\t\t\t\t\t(2) Prata ");
-            printf("\n\t\t\t\t\t(3) Ouro ");
-            printf("\n\t\t\t\t\tSelecione um plano: ");
-            fflush(stdin);
-            scanf(" %d", &planChoice);
-            if (planChoice != 1 && planChoice != 2 && planChoice != 3)
-            {
-                planChoice = 0;
+        printf("\n\t\t\t\t\tPlano: ");
+        printf("\n\t\t\t\t\t(1) Bronze ");
+        printf("\n\t\t\t\t\t(2) Prata ");
+        printf("\n\t\t\t\t\t(3) Ouro ");
+        planCh:
+        printf("\n\t\t\t\t\tSelecione um plano: ");
+        fflush(stdin);
+        scanf(" %d", &planChoice);
+        switch(planChoice) {
+            case 1:
+            usersRecord.plan = 0;
+            break;
+            case 2:
+            usersRecord.plan = 1;
+            break;
+            case 3:
+            usersRecord.plan = 2;
+            break;
+            default:
+                printf("\n\t\t\t\t\tPlano Invalido!");
+                goto planCh;
+
             }
-            usersRecord.plan = planChoice;
-        }
         userIndex++;
     }
     system("cls");
@@ -128,7 +134,7 @@ void newClient() {
             printf("\t\t\t\t\tCPF/CNPJ: %s", usersRecord.cpf);
             printf("\t\t\t\t\tData de Nascimento: %s", usersRecord.bday);
             printf("\t\t\t\t\tSexo: %s\n", usersRecord.gender);
-            printf("\t\t\t\t\tPlano: %s\n", usersRecord.plan);
+            printf("\t\t\t\t\tPlano: %d\n", usersRecord.plan);
         }
     getch();
     fflush(stdin);
