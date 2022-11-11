@@ -29,10 +29,10 @@ typedef struct
 
 void newClient()
 {
-  Register usersRecord;
+  Register usersRecord[10] = {};
   int i;
   int newUsers;
-  int userIndex = 1;
+  int userIndex = 0;
   char genderChoice;
   int planChoice = 0;
 
@@ -49,33 +49,33 @@ void newClient()
   for (i = 0; i < newUsers; i++)
   {
     printf("\n");
-    printf("\t\t\t\t\t\t\tCADASTRAR CLIENTE[%d]\n", userIndex);
+    printf("\t\t\t\t\t\t\tCADASTRAR CLIENTE[%d]\n", userIndex + 1);
     printf("\n");
     printf("\t\t\t\t\t=============================================\n");
     printf("\t\t\t\t\t\t                                    \n");
     printf("\t\t\t\t\tNome Completo: ");
     fflush(stdin);
-    fgets(usersRecord.name, 49, stdin);
+    fgets(usersRecord[userIndex].name, 49, stdin);
 
     printf("\t\t\t\t\tEndereço: ");
     fflush(stdin);
-    fgets(usersRecord.adress, 49, stdin);
+    fgets(usersRecord[userIndex].adress, 49, stdin);
 
     printf("\t\t\t\t\tCidade: ");
     fflush(stdin);
-    fgets(usersRecord.city, 49, stdin);
+    fgets(usersRecord[userIndex].city, 49, stdin);
 
     printf("\t\t\t\t\tEstado: ");
     fflush(stdin);
-    fgets(usersRecord.state, 49, stdin);
+    fgets(usersRecord[userIndex].state, 49, stdin);
 
     printf("\t\t\t\t\tCPF/CNPJ: ");
     fflush(stdin);
-    fgets(usersRecord.cpf, 49, stdin);
+    fgets(usersRecord[userIndex].cpf, 49, stdin);
 
     printf("\t\t\t\t\tData de Nascimento: ");
     fflush(stdin);
-    fgets(usersRecord.bday, 49, stdin);
+    fgets(usersRecord[userIndex].bday, 49, stdin);
     printf("\t\t\t\t\tSexo (M/F): ");
     fflush(stdin);
 
@@ -84,16 +84,16 @@ void newClient()
     switch (genderChoice)
     {
     case 'm':
-      strcpy(usersRecord.gender, "Masculino");
+      strcpy(usersRecord[userIndex].gender, "Masculino");
       break;
     case 'M':
-      strcpy(usersRecord.gender, "Masculino");
+      strcpy(usersRecord[userIndex].gender, "Masculino");
       break;
     case 'f':
-      strcpy(usersRecord.gender, "Feminino");
+      strcpy(usersRecord[userIndex].gender, "Feminino");
       break;
     case 'F':
-      strcpy(usersRecord.gender, "Feminino");
+      strcpy(usersRecord[userIndex].gender, "Feminino");
       break;
     default:
       goto genderCh;
@@ -110,13 +110,13 @@ void newClient()
     switch (planChoice)
     {
     case 1:
-      strcpy(usersRecord.plan, "Bronze");
+      strcpy(usersRecord[userIndex].plan, "Bronze");
       break;
     case 2:
-      strcpy(usersRecord.plan, "Prata");
+      strcpy(usersRecord[userIndex].plan, "Prata");
       break;
     case 3:
-      strcpy(usersRecord.plan, "Ouro");
+      strcpy(usersRecord[userIndex].plan, "Ouro");
       break;
     default:
       printf("\n\t\t\t\t\tPlano Invalido!");
@@ -134,14 +134,14 @@ void newClient()
   printf("\t\t\t\t\t\t                                    \n");
   for (i = 0; i < newUsers; i++)
   {
-    printf("\t\t\t\t\tNome Completo: %s", usersRecord.name);
-    printf("\t\t\t\t\tEndereço: %s", usersRecord.adress);
-    printf("\t\t\t\t\tCidade: %s", usersRecord.city);
-    printf("\t\t\t\t\tEstado: %s", usersRecord.state);
-    printf("\t\t\t\t\tCPF/CNPJ: %s", usersRecord.cpf);
-    printf("\t\t\t\t\tData de Nascimento: %s", usersRecord.bday);
-    printf("\t\t\t\t\tSexo: %s\n", usersRecord.gender);
-    printf("\t\t\t\t\tPlano: %s\n", usersRecord.plan);
+    printf("\n\t\t\t\t\tNome Completo: %s", usersRecord[i].name);
+    printf("\t\t\t\t\tEndereço: %s", usersRecord[i].adress);
+    printf("\t\t\t\t\tCidade: %s", usersRecord[i].city);
+    printf("\t\t\t\t\tEstado: %s", usersRecord[i].state);
+    printf("\t\t\t\t\tCPF/CNPJ: %s", usersRecord[i].cpf);
+    printf("\t\t\t\t\tData de Nascimento: %s", usersRecord[i].bday);
+    printf("\t\t\t\t\tSexo: %s\n", usersRecord[i].gender);
+    printf("\t\t\t\t\tPlano: %s\n", usersRecord[i].plan);
   }
   getch();
   fflush(stdin);
