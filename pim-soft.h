@@ -142,7 +142,7 @@ void mainMenu()
         printf("\t\t\t\t\t\t|\t (1) Cadastrar novo cliente        |\n");
         printf("\t\t\t\t\t\t|\t (2) Alterar plano.                |\n");
         printf("\t\t\t\t\t\t|\t (3) Consulta                      |\n");
-        printf("\t\t\t\t\t\t|\t (4) Arir novo chamado             |\n");
+        printf("\t\t\t\t\t\t|\t (4) Abrir novo chamado            |\n");
         printf("\t\t\t\t\t\t|\t (5) Logout                        |\n");
         printf("\t\t\t\t\t\t|\t (0) Sair                          |\n");
         printf("\t\t\t\t\t\t|\t                                   |\n");

@@ -7,9 +7,13 @@
 
 #include "pim-soft.h"
 #include "new-cliente.h"
+#include "file-modules.h"
+
+
 
 int main()
 {
+  imputData();
   setlocale(LC_ALL, "Portuguese");
 
   int try = 3;
