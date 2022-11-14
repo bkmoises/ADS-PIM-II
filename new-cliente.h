@@ -59,27 +59,27 @@ void newClient()
         printf("\t\t\t\t\tNome Completo: ");
         fflush(stdin);
         fgets(usersRecord[userIndex].name, 100, stdin);
-        usersRecord[userIndex].name[strcspn(usersRecord[userIndex].name, "\n")] = 0;
+        usersRecord[userIndex].name[strcspn(usersRecord[userIndex].name, "\n")] = '\0';
 
         printf("\t\t\t\t\tEndereço: ");
         fflush(stdin);
         fgets(usersRecord[userIndex].adress, 49, stdin);
-        usersRecord[userIndex].adress[strcspn(usersRecord[userIndex].adress, "\n")] = 0;
+        usersRecord[userIndex].adress[strcspn(usersRecord[userIndex].adress, "\n")] = '\0';
 
         printf("\t\t\t\t\tCidade: ");
         fflush(stdin);
         fgets(usersRecord[userIndex].city, 49, stdin);
-        usersRecord[userIndex].city[strcspn(usersRecord[userIndex].city, "\n")] = 0;
+        usersRecord[userIndex].city[strcspn(usersRecord[userIndex].city, "\n")] = '\0';
 
         printf("\t\t\t\t\tEstado: ");
         fflush(stdin);
         fgets(usersRecord[userIndex].state, 49, stdin);
-        usersRecord[userIndex].state[strcspn(usersRecord[userIndex].state, "\n")] = 0;
+        usersRecord[userIndex].state[strcspn(usersRecord[userIndex].state, "\n")] = '\0';
 
         printf("\t\t\t\t\tCPF/CNPJ: ");
         fflush(stdin);
         fgets(usersRecord[userIndex].cpf, 14, stdin);
-        usersRecord[userIndex].cpf[strcspn(usersRecord[userIndex].cpf, "\n")] = 0;
+        usersRecord[userIndex].cpf[strcspn(usersRecord[userIndex].cpf, "\n")] = '\0';
 
         printf("\t\t\t\t\tData de Nascimento: ");
         fflush(stdin);
@@ -155,7 +155,7 @@ planCh:
     printf("\n\n\t\t\t\t\t\CONFIRMAR DADOS?\n");
     printf("\n");
     printf("\t\t\t\t\t(S)im\n");
-    printf("\t\t\t\t\t(N)ão?\n");
+    printf("\t\t\t\t\t(N)ão\n");
 
     confirm:
     fflush(stdin);
@@ -189,8 +189,6 @@ planCh:
     default:
         goto confirm;
     }
-
-    getch();
     fflush(stdin);
     system("cls");
 }

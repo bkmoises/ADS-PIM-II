@@ -14,7 +14,7 @@ typedef struct
 Login login;
 int input = 0;
 
-// Mensagem de boas vindas ao usuário ao iniciar o software.
+// Mensagem de boas vindas ao usuï¿½rio ao iniciar o software.
 void welcomeScreen()
 {
     printf("\t\t\t\t\t\t\t\t Bem Vindo!\n");
@@ -23,7 +23,7 @@ void welcomeScreen()
     system("cls");
 }
 
-// Tela de login, onde o usuário irá validar sua identidade
+// Tela de login, onde o usuï¿½rio irï¿½ validar sua identidade
 void loginScreen()
 {
     printf("\t\t\t\t\t\t Para continuar, digite seu login e senha: \n");
@@ -37,10 +37,10 @@ void loginScreen()
     system("cls");
 }
 
-// Imprime uma mensagem para o usuário por um determinado tempo e limpa a tela na sequëncia.
+// Imprime uma mensagem para o usuï¿½rio por um determinado tempo e limpa a tela na sequï¿½ncia.
 // Parametros:
-// message: Mensagem que será exibida.
-// time: Tempo que a mensagem será exibidade.
+// message: Mensagem que serï¿½ exibida.
+// time: Tempo que a mensagem serï¿½ exibidade.
 void alertMsg(message, time)
 {
       printf(message);
@@ -64,7 +64,7 @@ void alertMsg(message, time)
           getch();
           printf("\t\t\t\t\t| CPF:                                      |\n");
           getch();
-          printf("\t\t\t\t\t| Endereço:                                 |\n");
+          printf("\t\t\t\t\t| Endereï¿½o:                                 |\n");
           getch();
           printf("\t\t\t\t\t| Plano:                                    |\n");
           printf("\t\t\t\t\t|    (1) Bronze                             |\n");
@@ -75,7 +75,7 @@ void alertMsg(message, time)
           system("cls");
 }
 */
-// Tela de alteração de plano do cliente
+// Tela de alteraï¿½ï¿½o de plano do cliente
 void editPlan()
 {
           printf("\n");
@@ -97,19 +97,19 @@ void editPlan()
 }
 
 // Tela para consulta de cliente cadastrado.
-void searchClient()
-{
-          printf("\n");
-          printf("\t\t\t\t\t\t\t  CONSULTAR\n");
-          printf("\n");
-          printf("\t\t\t\t\t=============================================\n");
-          printf("\t\t\t\t\t| Digite o CPF:                             |\n");
-          printf("\t\t\t\t\t=============================================\n");
-          printf("\n");
-          getch();
-          fflush(stdin);
-          system("cls");
-}
+// void searchClient()
+// {
+//           printf("\n");
+//           printf("\t\t\t\t\t\t\t  CONSULTAR\n");
+//           printf("\n");
+//           printf("\t\t\t\t\t=============================================\n");
+//           printf("\t\t\t\t\t| Digite o CPF:                             |\n");
+//           printf("\t\t\t\t\t=============================================\n");
+//           printf("\n");
+//           getch();
+//           fflush(stdin);
+//           system("cls");
+// }
 
 // Tela para abertura de chamados
 void newTicket()
@@ -125,7 +125,7 @@ void newTicket()
           getch();
           printf("\t\t\t\t\t| E-mail:                                   |\n");
           getch();
-          printf("\t\t\t\t\t| Descrição:                                |\n");
+          printf("\t\t\t\t\t| Descriï¿½ï¿½o:                                |\n");
           getch();
           fflush(stdin);
           system("cls");
@@ -149,7 +149,7 @@ void mainMenu()
         printf("\t\t\t\t\t\t============================================\n");
         printf("\n\n");
         fflush(stdin);
-        printf("\t\t\t\t\t\tSelecione uma opção: ");
+        printf("\t\t\t\t\t\tSelecione uma opï¿½ï¿½o: ");
         scanf("%d", &input);
         system("cls");
 }

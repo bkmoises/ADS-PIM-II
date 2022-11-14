@@ -8,6 +8,7 @@
 #include "pim-soft.h"
 #include "new-cliente.h"
 #include "file-modules.h"
+#include "clientConsult.h"
 
 
 
@@ -25,7 +26,7 @@ int main()
 
     loginScreen();
 
-    if (strcmp(login.user, "admin") == 0 && strcmp(login.pass, "123") == 0)
+    if (strcmp(login.user, "admin") == 0 && strcmp(login.pass, "123") == '\0')
     {
 
       alertMsg("Login efetuado com sucesso!", 1000);
