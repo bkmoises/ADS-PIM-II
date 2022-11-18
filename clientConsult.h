@@ -12,42 +12,42 @@ Register usersRecord[10] = {};
 int read = 0;
 int record = 0;
 
-void fileUpload()
-{
-    FILE *clientDb;
-    clientDb = fopen("database.txt", "r");
-
-    if (clientDb == NULL)
+    void fileUpload()
     {
-        printf("Ocorreu um problema ao tentar abrir o arquivo de usuarios.\n");
-        return 1;
-    }
+        FILE *clientDb;
+        clientDb = fopen("database.txt", "r");
 
-    do
-    {
-        read = fscanf(clientDb,
-                      "(%100[^;]; %100[^;]; %50[^;]; %50[^;]; %10[^;]; %15[^;]; %d; %10[^)])\n",
-                      &usersRecord[record].name,
-                      &usersRecord[record].adress,
-                      &usersRecord[record].city,
-                      &usersRecord[record].state,
-                      &usersRecord[record].gender,
-                      &usersRecord[record].cpf,
-                      &usersRecord[record].bday,
-                      &usersRecord[record].plan);
-
-        if (read == 8)
-            record++;
-
-        if (read != 8 && !feof(clientDb))
+        if (clientDb == NULL)
         {
-            printf("Formato de arquvio invalido!\n");
+            printf("Ocorreu um problema ao tentar abrir o arquivo de usuarios.\n");
             return 1;
         }
-    } while (!feof(clientDb));
 
-    fclose(clientDb);
-};
+        do
+        {
+            read = fscanf(clientDb,
+                          "(%100[^;]; %100[^;]; %50[^;]; %50[^;]; %10[^;]; %15[^;]; %d; %10[^)])\n",
+                          &usersRecord[record].name,
+                          &usersRecord[record].adress,
+                          &usersRecord[record].city,
+                          &usersRecord[record].state,
+                          &usersRecord[record].gender,
+                          &usersRecord[record].cpf,
+                          &usersRecord[record].bday,
+                          &usersRecord[record].plan);
+
+            if (read == 8)
+                record++;
+
+            if (read != 8 && !feof(clientDb))
+            {
+                printf("Formato de arquvio invalido!\n");
+                return 1;
+            }
+        } while (!feof(clientDb));
+
+        fclose(clientDb);
+    };
 
 void searchClient()
 {

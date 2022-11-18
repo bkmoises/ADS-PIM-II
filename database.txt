@@ -1,4 +1,2 @@
-(moises; rua valdir; sao paulo; sp; Masculino; 0987654321; 28081996; Bronze)
-(moise; jis; djis; dsji; Masculino; 43; 432432; Bronze)
-(jias; jdisa; djias; djisadjias; Feminino; 1234567890; 43534543; Bronze)
-(teste 2; rua do teste; sao teste; TE; Feminino; 1234543210; 2314124; Bronze)
+(moises; 12345)
+(admin; 123)
