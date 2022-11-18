@@ -2,52 +2,86 @@
 #include <stdlib.h>
 #include <string.h>
 #include <conio.h>
+typedef struct
+{
+    char user[30];
+    char pass[50];
+} Login;
 
 char search[14];
 char consultMenu;
 
-
-
 Register usersRecord[10] = {};
+Login login[100] = {};
+
 int read = 0;
 int record = 0;
 
-    void fileUpload()
-    {
-        FILE *clientDb;
-        clientDb = fopen("database.txt", "r");
+void fileUpload()
+{
+    FILE *clientDb;
+    clientDb = fopen("database.txt", "r");
 
-        if (clientDb == NULL)
+    if (clientDb == NULL)
+    {
+        printf("Ocorreu um problema ao tentar abrir o arquivo de usuarios.\n");
+        return 1;
+    }
+
+    do
+    {
+        read = fscanf(clientDb,
+                      "(%100[^;]; %100[^;]; %50[^;]; %50[^;]; %10[^;]; %15[^;]; %d; %10[^)])\n",
+                      &usersRecord[record].name,
+                      &usersRecord[record].adress,
+                      &usersRecord[record].city,
+                      &usersRecord[record].state,
+                      &usersRecord[record].gender,
+                      &usersRecord[record].cpf,
+                      &usersRecord[record].bday,
+                      &usersRecord[record].plan);
+
+        if (read == 8)
+            record++;
+
+        if (read != 8 && !feof(clientDb))
         {
-            printf("Ocorreu um problema ao tentar abrir o arquivo de usuarios.\n");
+            printf("Formato de arquvio invalido!\n");
             return 1;
         }
+    } while (!feof(clientDb));
 
-        do
+    fclose(clientDb);
+};
+
+void accessUpload()
+{
+    FILE *clientDb;
+    clientDb = fopen("access.txt", "r");
+
+    if (clientDb == NULL)
+    {
+        printf("Ocorreu um problema ao tentar abrir o arquivo de usuarios.\n");
+        return 1;
+    }
+
+    do
+    {
+        read = fscanf(clientDb, "(%100[^;]; %10[^)])\n", &login[record].user,
+                      &login[record].pass);
+
+        if (read == 2)
+            record++;
+
+        if (read != 2 && !feof(clientDb))
         {
-            read = fscanf(clientDb,
-                          "(%100[^;]; %100[^;]; %50[^;]; %50[^;]; %10[^;]; %15[^;]; %d; %10[^)])\n",
-                          &usersRecord[record].name,
-                          &usersRecord[record].adress,
-                          &usersRecord[record].city,
-                          &usersRecord[record].state,
-                          &usersRecord[record].gender,
-                          &usersRecord[record].cpf,
-                          &usersRecord[record].bday,
-                          &usersRecord[record].plan);
+            printf("Formato de arquvio invalido!\n");
+            return 1;
+        }
+    } while (!feof(clientDb));
 
-            if (read == 8)
-                record++;
-
-            if (read != 8 && !feof(clientDb))
-            {
-                printf("Formato de arquvio invalido!\n");
-                return 1;
-            }
-        } while (!feof(clientDb));
-
-        fclose(clientDb);
-    };
+    fclose(clientDb);
+};
 
 void searchClient()
 {
