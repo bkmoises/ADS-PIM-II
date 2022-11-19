@@ -2,18 +2,27 @@
 #include <stdlib.h>
 #include <string.h>
 #include <conio.h>
+#include <locale.h>
+
+typedef struct
+{
+    char user[30];
+    char pass[50];
+} Login;
 
 char search[14];
 char consultMenu;
 
-
-
 Register usersRecord[10] = {};
+Login login[100] = {};
+
 int read = 0;
 int record = 0;
 
+// função para upload dos dados dos clientes
 void fileUpload()
 {
+    setlocale(LC_ALL, "Portuguese");
     FILE *clientDb;
     clientDb = fopen("database.txt", "r");
 
@@ -39,7 +48,37 @@ void fileUpload()
         if (read == 8)
             record++;
 
-        if (read != 8 && !feof(clientDb))
+        if (read != 8 && !feof(clientDb)) // Falha ao localizar mais que 8 informações na linha
+        {
+            printf("Formato de arquvio invalido!\n");
+            return 1;
+        }
+    } while (!feof(clientDb));
+
+    fclose(clientDb);
+};
+
+// função para upload dos dados para acesso ao software
+void accessUpload()
+{
+    FILE *clientDb;
+    clientDb = fopen("access.txt", "r");
+
+    if (clientDb == NULL)
+    {
+        printf("Ocorreu um problema ao tentar abrir o arquivo de usuarios.\n");
+        return 1;
+    }
+
+    do
+    {
+        read = fscanf(clientDb, "(%100[^;]; %10[^)])\n", &login[record].user,
+                      &login[record].pass);
+
+        if (read == 2)
+            record++;
+
+        if (read != 2 && !feof(clientDb)) // Falha ao localizar mais que 8 informações na linha
         {
             printf("Formato de arquvio invalido!\n");
             return 1;
@@ -51,13 +90,14 @@ void fileUpload()
 
 void searchClient()
 {
+    setlocale(LC_ALL, "Portuguese");
     fileUpload();
 consultCh:
     printf("\n");
     printf("\t\t\t\t\t\t\t  CONSULTAR\n");
     printf("\n");
     printf("\t\t\t\t\t=============================================\n");
-    printf("\t\t\t\t\t| *sem espaços ou pontuações.\n");
+    printf("\t\t\t\t\t| *sem espacos ou pontuacoes.\n");
     printf("\t\t\t\t\t| Digite o CPF: ");
     fflush(stdin);
     fgets(search, 14, stdin);
@@ -77,17 +117,19 @@ consultCh:
         switch (consultMenu)
         {
         case 's':
+            system("cls");
             return 0;
 
         case 'S':
+            system("cls");
             return 0;
 
         case 'n':
             system("cls");
             goto consultCh;
         case 'N':
-            goto consultCh;
             system("cls");
+            goto consultCh;
         default:
             system("cls");
             goto consultMsg;
@@ -104,7 +146,7 @@ consultCh:
             printf("\n");
             printf("\t\t\t\t\t=============================================\n");
             printf("\t\t\t\t\tNome: %s\n", usersRecord[i].name);
-            printf("\t\t\t\t\tEndereço: %s\n", usersRecord[i].adress);
+            printf("\t\t\t\t\tEndereo: %s\n", usersRecord[i].adress);
             printf("\t\t\t\t\tCidade: %s\n", usersRecord[i].city);
             printf("\t\t\t\t\tEstado: %s\n", usersRecord[i].state);
             printf("\t\t\t\t\tSexo: %s\n", usersRecord[i].gender);
@@ -113,17 +155,11 @@ consultCh:
             printf("\t\t\t\t\tPlano: %s\n", usersRecord[i].plan);
 
             printf("\n\n\t\t\t\t\t(N)ova pesquisa.\n");
-            printf("\t\t\t\t\tAperte qualquer tecla para sair.");
+            printf("\t\t\t\t\tAperte qualquer tecla para SAIR.");
             fflush((stdin));
             consultMenu = getch();
             switch (consultMenu)
             {
-            case 's':
-                break;
-
-            case 'S':
-                break;
-
             case 'n':
                 system("cls");
                 goto consultCh;

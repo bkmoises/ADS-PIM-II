@@ -2,9 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-const char* STRUCT_FORMAT_IN = "(%s; %s; %s; %s; %s; %s; %d; %s)\n";
+const char *STRUCT_FORMAT_IN = "(%s; %s; %s; %s; %s; %s; %d; %s)\n";
 
-// Função registra somente números inteiros;
+// FunÃ§Ã£o registra somente nï¿½meros inteiros;
 int readInt()
 {
     int num;
@@ -44,7 +44,7 @@ void newClient()
     printf("\n");
     printf("\t\t\t\t\t=============================================\n");
     printf("\t\t\t\t\t\t                                    \n");
-    printf("\t\t\t\t\tQuantos clientes você deseja cadastrar?: ");
+    printf("\t\t\t\t\tQuantos clientes vocï¿½ deseja cadastrar?: ");
 
     newUsers = readInt();
     system("cls");
@@ -61,7 +61,7 @@ void newClient()
         fgets(usersRecord[userIndex].name, 100, stdin);
         usersRecord[userIndex].name[strcspn(usersRecord[userIndex].name, "\n")] = '\0';
 
-        printf("\t\t\t\t\tEndereço: ");
+        printf("\t\t\t\t\tEndereï¿½o: ");
         fflush(stdin);
         fgets(usersRecord[userIndex].adress, 49, stdin);
         usersRecord[userIndex].adress[strcspn(usersRecord[userIndex].adress, "\n")] = '\0';
@@ -88,7 +88,7 @@ void newClient()
         printf("\t\t\t\t\tSexo (M/F): ");
         fflush(stdin);
 
-genderCh:
+    genderCh:
         genderChoice = getch();
         switch (genderChoice)
         {
@@ -112,7 +112,7 @@ genderCh:
         printf("\n\t\t\t\t\t(2) Prata ");
         printf("\n\t\t\t\t\t(3) Ouro ");
 
-planCh:
+    planCh:
         printf("\n\t\t\t\t\tSelecione um plano: ");
         fflush(stdin);
         scanf(" %d", &planChoice);
@@ -139,12 +139,12 @@ planCh:
     printf("\n");
     printf("\t\t\t\t\t=============================================\n");
     printf("\t\t\t\t\t\t                                    \n");
-    printf("\t\t\t\t\tVerifique se os dados estão corretos: \n");
+    printf("\t\t\t\t\tVerifique se os dados estï¿½o corretos: \n");
     printf("\t\t\t\t\t\t                                    \n");
     for (i = 0; i < newUsers; i++)
     {
         printf("\n\t\t\t\t\tNome Completo: %s", usersRecord[i].name);
-        printf("\n\t\t\t\t\tEndereço: %s", usersRecord[i].adress);
+        printf("\n\t\t\t\t\tEndereï¿½o: %s", usersRecord[i].adress);
         printf("\n\t\t\t\t\tCidade: %s", usersRecord[i].city);
         printf("\n\t\t\t\t\tEstado: %s", usersRecord[i].state);
         printf("\n\t\t\t\t\tCPF/CNPJ: %s", usersRecord[i].cpf);
@@ -155,13 +155,13 @@ planCh:
     printf("\n\n\t\t\t\t\t\CONFIRMAR DADOS?\n");
     printf("\n");
     printf("\t\t\t\t\t(S)im\n");
-    printf("\t\t\t\t\t(N)ão\n");
+    printf("\t\t\t\t\t(N)ï¿½o\n");
 
-    confirm:
+confirm:
     fflush(stdin);
     printf("\n\t\t\t\t\t ");
     confirmCh = getch();
-    switch(confirmCh)
+    switch (confirmCh)
     {
     case 's':
         for (i = 0; i < newUsers; i++)
@@ -180,7 +180,7 @@ planCh:
             fprintf(clientDb, STRUCT_FORMAT_IN, usersRecord[i].name, usersRecord[i].adress, usersRecord[i].city, usersRecord[i].state, usersRecord[i].gender, usersRecord[i].cpf, usersRecord[i].bday, usersRecord[i].plan);
             fclose(clientDb);
         }
-    break;
+        break;
     case 'n':
         break;
     case 'N':
