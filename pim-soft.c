@@ -13,8 +13,8 @@
 
 int main()
 {
+    setlocale(LC_ALL, "");
     imputData();
-    setlocale(LC_ALL, "Portuguese");
 
     int try = 3;
 
@@ -22,9 +22,6 @@ int main()
 
     while (try > 0)
     {
-
-        //  loginScreen();
-
         if (loginProcess() == 0)
         {
             system("cls");
@@ -53,7 +50,7 @@ int main()
                 case 0:
                     exit(EXIT_SUCCESS);
                 default:
-                    printf("\n\t\t\tOpção Invalida!\n\n");
+                    printf("\n\t\t\tOpcao Invalida!\n\n");
                     fflush(stdin);
                 }
 
@@ -69,12 +66,12 @@ int main()
             }
             if (try == 1)
             {
-                printf("O programa será encerrado caso erre a senha novamente.\n\n");
+                printf("O programa sera encerrado caso erre sua senha novamente.\n\n");
             }
         }
     }
 
     system("cls");
-    alertMsg("Número de tentativas excedida.\nFinalizando...\n", 3000);
+    alertMsg("Numero de tentativas excedida.\nFinalizando...\n", 3000);
     return -1;
 }

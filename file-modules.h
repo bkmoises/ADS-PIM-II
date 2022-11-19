@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// funcão que cria os arquivos database e access caso não existam.
 void imputData()
 {
     FILE *clientDb;

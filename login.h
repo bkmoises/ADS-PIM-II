@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+// função responsavel por fazer o login de usuário caso as credenciais estajam corretas
 int loginProcess()
 {
     accessUpload();
