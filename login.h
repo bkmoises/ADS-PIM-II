@@ -7,47 +7,47 @@ int loginProcess()
 {
     accessUpload();
 
-    int tam = 0;
-    char usuario[80], senha[80], senha2[80];
-    memset(usuario, 0x00, sizeof(usuario));
-    memset(senha, 0x00, sizeof(senha));
+    int size = 0;
+    char user[80], passwd[80];
+    memset(user, 0x00, sizeof(user));
+    memset(passwd, 0x00, sizeof(passwd));
 
     printf("\t\t\t\t\t\t Para continuar, digite seu login e senha: \n");
     printf("\t\t\t\t\t\t============================================\n");
     printf("\t\t\t\t\t\tLogin: ");
-    scanf("%s", &usuario);
+    scanf("%s", &user);
     printf("\t\t\t\t\t\tSenha: ");
     fflush(stdin);
 
     do
     {
-        senha[tam] = getch();
-        if (senha[tam] == 0x08 && tam > 0) // Backspace
+        passwd[size] = getch();
+        if (passwd[size] == 0x08 && size > 0) // Backspace
         {
             printf("\b \b");
-            senha[tam] = 0x00;
-            tam--;
+            passwd[size] = 0x00;
+            size--;
         }
-        else if (senha[tam] == 13) // Enter
+        else if (passwd[size] == 13) // Enter
         {
-            senha[tam] = 0x00;
+            passwd[size] = 0x00;
             break;
         }
-        else if (senha[tam] != 0x08)
+        else if (passwd[size] != 0x08)
         {
             putchar('*');
-            tam++;
+            size++;
         }
-    } while (tam < 100);
+    } while (size < 100);
 
     int userIndex;
 
     for (userIndex = 0; userIndex < sizeof(login) / sizeof(login[0]);
          userIndex++)
     {
-        if (strcmp(usuario, login[userIndex].user) == 0)
+        if (strcmp(user, login[userIndex].user) == 0)
         {
-            if (strcmp(senha, login[userIndex].pass) == 0)
+            if (strcmp(passwd, login[userIndex].pass) == 0)
             {
                 return 0;
             }
